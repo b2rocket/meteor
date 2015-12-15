@@ -1,0 +1,42 @@
+<head>
+  <title>Todo - List</title>
+</head>
+ 
+<body>
+
+<div class="container"
+     ng-app="simple-todos"
+     ng-controller="TodosListCtrl">
+  
+
+  <header>
+    <h1>Todo -- List </h1>
+    
+    <label class="hide-completed">
+      <input type="checkbox" ng-model="hideCompleted"/>
+      Hide Completed Tasks
+    </label>
+    
+    <form class="new-task" ng-submit="addTask(newTask); newTask='';">
+      <input ng-model="newTask" type="text"
+             name="text" placeholder="Type to add new tasks" />
+    </form>
+
+  </header>
+ {{incompleteCount}}
+  <ul>
+   
+    <li ng-repeat="task in tasks" ng-class="{'checked': task.checked}">
+      <button class="delete" ng-click="tasks.remove(task)">x</button>
+ 
+      <input type="checkbox" ng-model="task.checked" class="toggle-checked" />
+ 
+      <span class="text">{{task.text}}</span>
+    </li>
+  </ul>
+   
+  
+  
+  
+</div>
+</body>
