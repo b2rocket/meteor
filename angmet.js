@@ -17,19 +17,22 @@ if (Meteor.isClient) {
           text: newTask,
           createdAt: new Date() }
         );
+        console.log("Task added" + newTask + "test");
       };
-      
+       
     
         $scope.$watch('hideCompleted', function() {
             if ($scope.hideCompleted)
             $scope.query = {checked: {$ne: true}};
             else
             $scope.query = {};
-        }); 
- 
+            console.log("HideAktiv?" + $scope.hideCompleted);
+        });  
+  
       $scope.incompleteCount = function() {
           return Tasks.find({checked: {$ne: true}}).count();
-      };
+      }; 
  
     }]);
 }
+  
